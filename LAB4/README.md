@@ -1,26 +1,28 @@
 # LAB_04: Recursive Algorithms
 
+
 ## 1. Team Members & Assigned Exercises
 Exercise 1: Jina Hwang - Recursive Comment Thread Traversal  
 Exercise 2: Minkyeong Kang - Recursive Content Aggregation (Divide & Conquer)  
 Exercise 3: Hwahyeon Shin - Converting Recursion to Iteration
 
+
 ## 2. Brief Description of Solutions
 
-Exercise 1 (Recursive Traversal): 
-Implemented a CommentNode structure to represent nested social media comment threads.
-Developed recursive functions for depth-first traversal to count total comments, sum up likes, and calculate the maximum nesting depth.
-Added recursive search by user/keyword and a cascade deletion feature that removes a target comment along with all its replies.
+Exercise 1 (Recursive Comment Thread Traversal):  
+Made a CommentNode structure to manage nested comments as a tree.  
+Used recursion to display comments with indentation and count the total number of replies and likes.  
+Added a search function for specific users and a delete function that also removes all sub-replies.  
 
-Exercise 2 (Divide & Conquer): 
-Applied Divide and Conquer to find the maximum, sum, and average engagement scores by recursively splitting the post array.
-Implemented Merge Sort (O(n log n)) to rank posts by engagement.
-Used binary search-style recursion to identify the peak hour of likes in O(log n) time.
+Exercise 2 (Recursive Content Aggregation with Divide & Conquer):  
+Used Divide and Conquer by splitting the post list in half to find the max engagement and average.  
+Implemented Merge Sort to rank posts and used a recursive search to find the peak time for likes.  
 
-Exercise 3 (Iteration with Explicit Stack): 
-Converted recursive thread flattening into an iterative version using an explicit stack in heap memory to ensure stability for deep threads.
-Used a State Machine approach with START and DONE labels to manually track traversal progress without the system call stack.
-Implemented tail recursion and loop conversion for comment counting to optimize memory usage.
+Exercise 3 (Iteration with Explicit Stack):  
+Changed recursive functions into loops using a manual stack to prevent the program from crashing on long threads.  
+Used START and DONE labels to keep track of the progress in nested comments without the system stack.  
+Applied tail recursion and while loops for counting comments to save memory.
+
 
 ## 3. Complexity Analysis Summary
 
@@ -31,6 +33,7 @@ Implemented tail recursion and loop conversion for comment counting to optimize 
 | Merge Sort | O(n log n) | O(n) | Standard sorting complexity; requires extra space for merging. |
 | Peak Hour Search | O(log n) | O(log n) | Binary search logic reduces search space by half each step. |
 | Iterative Flatten | O(n) | O(d) | Visits n comments; manual stack size depends on depth (d). |
+
 
 ## 4. Complexity Analysis Questions
 
