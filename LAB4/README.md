@@ -7,6 +7,7 @@ Exercise 2: Minkyeong Kang - Recursive Content Aggregation (Divide & Conquer)
 Exercise 3: Hwahyeon Shin - Converting Recursion to Iteration
 
 
+
 ## 2. Brief Description of Solutions
 
 Exercise 1 (Recursive Comment Thread Traversal):  
@@ -24,15 +25,17 @@ Used START and DONE labels to keep track of the progress in nested comments with
 Applied tail recursion and while loops for counting comments to save memory.
 
 
+
 ## 3. Complexity Analysis Summary
 
 | Exercise | Time Complexity | Space Complexity | Reason |
 | :--- | :--- | :--- | :--- |
-| Comment Traversal | O(n) | O(d) | Every node is visited once; space depends on the nesting depth (d). |
-| Max Engagement | O(n) | O(log n) | Entire array is checked; recursion depth is log n. |
-| Merge Sort | O(n log n) | O(n) | Standard sorting complexity; requires extra space for merging. |
-| Peak Hour Search | O(log n) | O(log n) | Binary search logic reduces search space by half each step. |
-| Iterative Flatten | O(n) | O(d) | Visits n comments; manual stack size depends on depth (d). |
+| Exercise 1: Recursive Traversal | O(n) | O(d) | Every comment node (n) must be visited once. Space depends on the max nesting depth (d).  |
+| Exercise 2: Max Engagement | O(n) | O(log n) | Even with splitting, every post must be checked at least once. Recursion depth is log n.  |
+| Exercise 2: Merge Sort | O(n log n) | O(n) | Standard complexity for dividing and merging. Needs extra space for the temporary list.  |
+| Exercise 2: Peak Hour Search | O(log n) | O(log n) | Uses binary search logic to reduce the search range by half in each recursive step.  |
+| Exercise 3: Iterative Flatten | O(n) | O(d) | Visits all n nodes like recursion. Manual stack size is determined by the max thread depth (d).  |
+
 
 
 ## 4. Complexity Analysis Questions
