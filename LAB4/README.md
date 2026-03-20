@@ -1,9 +1,9 @@
 # LAB_04: Recursive Algorithms
 
 ## 1. Team Members & Assigned Exercises
-Jina Hwang: Exercise 1 - Recursive Comment Thread Traversal  
-Minkyeong Kang: Exercise 2 - Recursive Content Aggregation (Divide & Conquer)  
-Hwahyeon Shin: Exercise 3 - Converting Recursion to Iteration
+Exercise 1: Jina Hwang - Recursive Comment Thread Traversal  
+Exercise 2: Minkyeong Kang - Recursive Content Aggregation (Divide & Conquer)  
+Exercise 3: Hwahyeon Shin - Converting Recursion to Iteration
 
 ## 2. Brief Description of Solutions
 
