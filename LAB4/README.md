@@ -3,7 +3,7 @@
 
 ## 1. Team Members & Assigned Exercises
 Exercise 1: Jina Hwang - Recursive Comment Thread Traversal  
-Exercise 2: Minkyeong Kang - Recursive Content Aggregation (Divide & Conquer)  
+Exercise 2: Minkyeong Kang - Recursive Content Aggregation with divide & Conquer  
 Exercise 3: Hwahyeon Shin - Converting Recursion to Iteration
 
 
