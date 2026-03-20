@@ -28,7 +28,7 @@ Applied tail recursion and while loops for counting comments to save memory.
 
 ## 3. Complexity Analysis Summary
 
-| Exercise | Time Complexity | Space Complexity | Reason |
+| Exercise | Time Complexity | Space Complexity | Description |
 | :--- | :--- | :--- | :--- |
 | Exercise 1: Recursive Traversal | O(n) | O(d) | Every comment node (n) must be visited once. Space depends on the max nesting depth (d).  |
 | Exercise 2: Max Engagement | O(n) | O(log n) | Even with splitting, every post must be checked at least once. Recursion depth is log n.  |
