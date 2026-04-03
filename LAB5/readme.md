@@ -23,6 +23,8 @@ Exercise 3
 
 ## 3. Complexity Analysis Questions
 
+## Exercise 1
+
 ## Exercise 2
 
 1. Complexity Summary
@@ -46,3 +48,5 @@ Push Right, then Push Left (so Left is processed first via LIFO).
 4. Export: Why Pre-order?
 
 Pre-order is best. It visits Parent → Child, keeping the hierarchy intuitive (like a Table of Contents) and making tree reconstruction easy.
+
+## Exercise 3
