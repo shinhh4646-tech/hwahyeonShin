@@ -23,7 +23,7 @@ Exercise 3
 
 ## 3. Complexity Analysis Questions
 
-Exercise 2
+## Exercise 2
 
 1. Complexity Summary
 
