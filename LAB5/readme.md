@@ -1,6 +1,6 @@
-LAB_05: Basics of Tree Structures
+## LAB_05: Basics of Tree Structures
 
-1. Team Members & Assigned Exercises
+## 1. Team Members & Assigned Exercises
 
 Exercise 1: Hwahyeon Shin
 
@@ -8,7 +8,7 @@ Exercise 2: Jina Hwang
 
 Exercise 3: Minkyeong Kang
 
-2. Brief Description of Solutions
+## 2. Brief Description of Solutions
 
 Exercise 1
 
@@ -20,3 +20,5 @@ First, In-order traversal visits nodes in a Left-Root-Right sequence, making it 
 Beyond simple visits, these traversals enable analytical functions like finding the most popular category by recursively comparing post_count values across all nodes. In terms of efficiency, these methods operate at a time complexity of O(n), since every node must be visited once, and a space complexity of O(h), proportional to the height of the tree. Finally, while recursion is standard, these algorithms can be implemented iteratively using a Stack to handle deep trees more robustly, ensuring that even large-scale social data can be processed without memory overflows.
 
 Exercise 3
+
+## 3. Complexity Analysis Questions
