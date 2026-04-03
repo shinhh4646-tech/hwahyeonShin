@@ -22,3 +22,27 @@ Beyond simple visits, these traversals enable analytical functions like finding 
 Exercise 3
 
 ## 3. Complexity Analysis Questions
+
+Exercise 2
+
+1. Complexity Summary
+
+Time: O(n) — All nodes are visited once.
+
+Space: O(h) — Proportional to tree height (stack depth).
+
+2. Metrics: Pre vs. Post-order
+
+Post-order is best. It uses a bottom-up approach, calculating child values before the parent's total.
+
+3. Iterative Stack (Pre-order)
+
+Push Root.
+
+Pop node, process it.
+
+Push Right, then Push Left (so Left is processed first via LIFO).
+
+4. Export: Why Pre-order?
+
+Pre-order is best. It visits Parent → Child, keeping the hierarchy intuitive (like a Table of Contents) and making tree reconstruction easy.
