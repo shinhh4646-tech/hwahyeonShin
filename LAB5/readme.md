@@ -23,6 +23,13 @@ Beyond simple visits, these traversals enable analytical functions like finding 
 
 ## Exercise 3
 
+Exercise 3 focused on implementing a Generalized Tree (N-ary Tree) to represent social network categories and converting it into a Binary Tree representation for algorithmic efficiency.
+
+The core of the solution lies in the "First Child, Next Sibling" transformation. In this model, each BinaryNode uses its left pointer to point to its first child and its right pointer to point to its immediate sibling. This allows a multi-child tree to be represented using only two pointers per node without losing any hierarchical information.
+
+The implementation also included essential tree metrics. Fan-out was calculated by finding the maximum number of children any single node possesses, while the Branching Factor was derived by averaging the number of children across all non-leaf nodes. These metrics provide quantitative insights into the "width" and "density" of the category hierarchy. By reusing count_nodes and count_leaves functions, the branching factor was computed efficiently, demonstrating modular algorithm design.
+
+
 ## 3. Complexity Analysis Questions
 
 ## Exercise 1
@@ -52,3 +59,20 @@ Push Right, then Push Left (so Left is processed first via LIFO).
 Pre-order is best. It visits Parent → Child, keeping the hierarchy intuitive (like a Table of Contents) and making tree reconstruction easy.
 
 ## Exercise 3
+
+**1. Binary vs. Generalized**
+* **Generalized:** Intuitive hierarchy, fast child access. Complex memory management.
+* **Binary:** Simple 2-pointer structure, easy implementation. Slow sibling access.
+
+**2. Space Complexity**
+* **$O(n)$ for both.** Space is proportional to the number of nodes $n$.
+
+**3. Traversal Complexity**
+* **$O(n)$ for both.** Every node must be visited once.
+
+**4. Large Social Network: Which one?**
+* **Generalized.** Faster to access sub-categories directly from a list than traversing siblings.
+
+**5. 'First child, next sibling' Logic & Time**
+* **Logic:** Link first child to Left, then link siblings to Right.
+* **Time:** **$O(n)$**. All nodes processed once during conversion.
