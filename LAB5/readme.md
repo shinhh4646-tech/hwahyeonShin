@@ -70,9 +70,9 @@ Pre-order is best. It visits Parent → Child, keeping the hierarchy intuitive (
 **3. Traversal Complexity**
 * **$O(n)$ for both.** Every node must be visited once.
 
-**4. Large Social Network: Which one?**
+**4. Large Social Network**
 * **Generalized.** Faster to access sub-categories directly from a list than traversing siblings.
 
-**5. 'First child, next sibling' Logic & Time**
+**5. Logic & Time Complexity**
 * **Logic:** Link first child to Left, then link siblings to Right.
 * **Time:** **$O(n)$**. All nodes processed once during conversion.
