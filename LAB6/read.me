@@ -6,11 +6,22 @@ Exercise 1: Jina HWANG
 
 Exercise 2: 
 
-Exercise 3: M
+Exercise 3: 
 
 ## 2. Brief Description of Solutions
 
 ## Exercise 1
+This project implements a SocialGraph class using two concurrent data structures to model social network dynamics:
+
+Dual-Storage System: The class maintains an Adjacency Matrix (2D Array) for O(1) connectivity checks and an Adjacency List (Array of Lists) for memory-efficient storage.
+
+Optimized Operations: Friendship updates (Add/Remove) are synchronized across both structures, ensuring data integrity while allowing for direct performance comparison.
+
+Analytical Metrics: It calculates network Density and Completeness using global counters, and generates a Degree Distribution map to analyze user connectivity patterns.
+
+Representation Fluidity: Built-in conversion functions (matrix_to_list, list_to_matrix) allow the graph to adapt its structure based on specific use cases or memory constraints.
+
+Conclusion: The solution demonstrates that while matrices are faster for updates, the adjacency list is the only scalable choice for massive, sparse social networks.
 
 
 ## Exercise 2
