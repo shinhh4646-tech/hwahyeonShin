@@ -4,9 +4,9 @@
 
 Exercise 1: Jina HWANG
 
-Exercise 2: 
+Exercise 2: Minkyeong KANG
 
-Exercise 3: 
+Exercise 3: Hwahyeon SHIN
 
 ## 2. Brief Description of Solutions
 
@@ -25,11 +25,18 @@ Conclusion: The solution demonstrates that while matrices are faster for updates
 
 
 ## Exercise 2
-
+This exercise focuses on deep exploration of social circles using **Depth-First Search (DFS)**:
+* **Recursive Traversal**: Implemented a recursive DFS algorithm to explore social connections as deep as possible before backtracking.
+* **Connectivity Mapping**: Used DFS to identify all reachable users from a starting point, helping to understand the boundaries of isolated social clusters.
+* **Path Finding**: Leveraged the stack-based nature of DFS to discover complex, non-linear friendship chains within the network.
 
 
 ## Exercise 3
-
+This exercise implements **Breadth-First Search (BFS)** to analyze distances and shortest paths in a social network:
+* **Level-Order Exploration**: Developed a queue-based BFS to traverse the network layer-by-layer, ensuring that users are visited in order of their proximity to the starting point.
+* **Distance Tracking**: Integrated a distance mapping system that calculates the exact "degrees of separation" between the source user and everyone else in the graph.
+* **Path Reconstruction**: Implemented a "parent-tracking" mechanism to not only find the distance but reconstruct the specific chain of friends that forms the shortest path.
+* **Social Analytics**: Built tools to calculate the average degrees of separation across the network and provide friend recommendations based on "friends-of-friends" frequency.
 
 ## 3. Complexity Analysis Questions
 
@@ -42,10 +49,15 @@ Conclusion: The solution demonstrates that while matrices are faster for updates
 3. Use Matrix for high-frequency updates in small graphs, and List for scalability in massive social networks.
 
 ## Exercise 2
-
+1. **Time Complexity**: $O(V + E)$, as each user (Vertex) and friendship (Edge) is visited once during the recursive calls.
+2. **Space Complexity**: $O(V)$ in the worst case (e.g., a long linear chain) due to the recursion stack and visited set.
+3. **Application**: Best suited for tasks like finding cycles in a graph or exploring all possible paths in a deeply nested social structure.
 
 
 ## Exercise 3
-
+1. **Time and Space Complexity**: Time $O(V + E)$ and Space $O(V)$. BFS uses a queue to explore wide, while DFS goes deep; both visit all nodes/edges once.
+2. **Shortest Path Guarantee**: BFS is guaranteed to find the shortest path in unweighted networks because it explores all nodes at distance $d$ before moving to $d+1$.
+3. **Six Degrees of Separation**: BFS is used because it explores neighbors layer-by-layer, making it efficient for finding connections within a small, specific number of steps.
+4. **Shortest Friendship Chain**: BFS is the optimal choice as it always finds the minimum number of edges to connect two users. DFS may find a much longer path first.
 
 
