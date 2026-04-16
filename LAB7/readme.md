@@ -29,6 +29,11 @@ The draw_sierpinski function generates a Sierpinski triangle by repeatedly subdi
 
 
 ## Exercise 3
+This solution implements terrain generation and error checking using recursive algorithms.
+* **midpoint_displacement:** It generates a 1D line by splitting segments in half and adding a random height value to the midpoint at each step.
+* **generate_terrain:** It creates a 2D grid using the Diamond-Square logic, where it calculates the average of neighboring points and adds a random offset to the center and edges.
+* **detect_artifacts:** This function scans the final grid to find points where the height difference between neighbors is larger than a set threshold.
+
 
 ## 3. Complexity Analysis Questions
 
@@ -49,7 +54,9 @@ Adaptive Optimization: To improve efficiency, "Adaptive Quadtrees" are recommend
 The time complexity for generating these fractals is exponential due to the branching nature of the recursive calls.
 
 ## Exercise 3
-
+1. For a line with depth 10, the number of midpoints is $2^{10} - 1 = 1023$. This is because each level of recursion doubles the number of segments.
+2. The complexity for both generating the terrain and detecting artifacts is $O(N^2)$, where $N$ is the side length of the grid, as every point is visited.
+3. If roughness is 0, the terrain is flat. If roughness is high (e.g., 2), the terrain becomes very jagged and irregular.
 
 
 
