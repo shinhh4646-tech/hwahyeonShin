@@ -54,9 +54,7 @@ Adaptive Optimization: To improve efficiency, "Adaptive Quadtrees" are recommend
 The time complexity for generating these fractals is exponential due to the branching nature of the recursive calls.
 
 ## Exercise 3
-1. For a line with depth 10, the number of midpoints is $2^{10} - 1 = 1023$. This is because each level of recursion doubles the number of segments.
-2. The complexity for both generating the terrain and detecting artifacts is $O(N^2)$, where $N$ is the side length of the grid, as every point is visited.
-3. If roughness is 0, the terrain is flat. If roughness is high (e.g., 2), the terrain becomes very jagged and irregular.
-
+1. For a line with depth 10, the total number of midpoints is $2^{10} - 1 = 1023$. This is because each recursive level splits every existing segment into two, following a geometric series.
+2. If roughness is 0, the terrain becomes perfectly flat as no random displacement is added. If roughness is 2, the terrain becomes very jagged and irregular due to large height variations.
 
 
