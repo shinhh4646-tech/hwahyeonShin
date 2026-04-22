@@ -1,7 +1,7 @@
 """
-[Handover: 프로젝트 메인 URL 설정]
-이 파일은 프로젝트 전체의 URL 라우팅을 결정하는 메인 게이트웨이입니다.
-- 'app' 폴더의 urls.py를 포함(include)하여 메인 주소로 연결합니다.
+[프로젝트 메인 URL 설정]
+- 프로젝트 전체의 URL 라우팅을 결정하는 메인 게이트웨이.
+- 'app' 폴더의 urls.py를 포함(include)하여 메인 주소로 연결.
 """
 from django.contrib import admin
 from django.urls import path, include

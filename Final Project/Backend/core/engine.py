@@ -77,15 +77,86 @@ class ASnapEngine:
         return report_count_within_10m > self.config['coordinated_attack_limit']
 
     def evaluate_user(self, user_metrics):
-        """[Handover] 위 13가지 로직을 종합하여 점수를 산출하고 최종 상태를 리턴합니다."""
         score = 0
         reasons = []
         
-        # 실제 구현 시에는 유저의 데이터를 받아 각 check_ 함수를 돌려 score를 합산합니다.
-        # 예시: IP 중복 시 점수 추가
+        # 1: Detect high activity level right after the account is created
+        if self.check_high_activity_after_registration(user_metrics.get('actions_within_hour', 0)):
+            score += 30
+            reasons.append("High activity immediately after registration")
+
+        # 2: Identify multiple accounts sharing the same IP address
         if self.check_ip_address_duplication(user_metrics.get('ip_count', 0)):
             score += 30
             reasons.append("IP Address duplication detected")
-            
-        status = "Blocked" if score >= 70 else "Normal"
-        return {"status": status, "score": score, "reasons": reasons}
+
+        # 3: Filter content for specific blacklisted spam keywords
+        if self.check_spam_keyword_detection(user_metrics.get('content', '')):
+            score += 15
+            reasons.append("Spam keywords detected in content")
+
+        #  4: Monitor for abnormally high posting frequency per minute
+        if self.check_burst_posting(user_metrics.get('posts_per_minute', 0)):
+            score += 40
+            reasons.append("Burst posting activity")
+
+        # 5: Flag accounts with zero followers but excessive following counts
+        if self.check_abnormal_follow_ratio(user_metrics.get('followers', 0), user_metrics.get('following', 0)):
+            score += 35
+            reasons.append("Abnormal Follower/Following ratio")
+
+        # 6: Identify repetitive comment patterns (identical content)
+        if self.check_comment_spamming(user_metrics.get('same_content_count', 0)):
+            score += 20
+            reasons.append("Repetitive comment content detected")
+
+        # 7: Detect high-frequency commenting behavior
+        if self.check_high_speed_commenting(user_metrics.get('comments_per_minute', 0)):
+            score += 40
+            reasons.append("High-speed commenting detected")
+
+        # 8: Detect machine-like high-speed liking activity
+        if self.check_high_speed_liking(user_metrics.get('likes_per_minute', 0)):
+            score += 40
+            reasons.append("High-speed liking detected")
+
+        # 9: Check for non-human reaction time (sub-0.1 seconds)
+        p_time, l_time = user_metrics.get('post_time'), user_metrics.get('like_time')
+        if p_time and l_time and self.check_automated_reaction(p_time, l_time):
+            score += 50
+            reasons.append("Automated reaction (Instant response)")
+
+        # 10: Identify aggressive interaction sequences (Like then immediate Follow)
+        l_time_seq, f_time_seq = user_metrics.get('like_time'), user_metrics.get('follow_time')
+        if l_time_seq and f_time_seq and self.check_aggressive_interaction(l_time_seq, f_time_seq):
+            score += 25
+            reasons.append("Aggressive interaction pattern")
+
+        # 11: Detect mismatched user flow (High follow rate without search history)
+        if self.check_inconsistent_user_flow(user_metrics.get('following', 0), user_metrics.get('search_count', 0)):
+            score += 25
+            reasons.append("Inconsistent user flow (Follow without search)")
+
+        # 12: Weighted scoring based on distinct community reports
+        if self.check_community_based_detection(user_metrics.get('reports', 0)):
+            score += 60
+            reasons.append("Multiple community reports received")
+
+        # 13: Detect sudden spikes in reports suggesting a coordinated attack
+        if self.check_coordinated_attack(user_metrics.get('reports_10m', 0)):
+            score += 60
+            reasons.append("Coordinated attack pattern detected")
+
+        # Final decision logic based on the cumulative risk score
+        if score >= 70:
+            status = "Blocked"
+        elif score >= 40:
+            status = "Suspected"
+        else:
+            status = "Normal"
+
+        return {
+            "status": status,
+            "score": score,
+            "reasons": reasons
+        }
