@@ -4,7 +4,7 @@
 
 Exercise 1: Hwahyeon SHIN
 
-Exercise 2: Jina Hwang
+Exercise 2: Jina HWANG
 
 Exercise 3: Minkyeong KANG
 
