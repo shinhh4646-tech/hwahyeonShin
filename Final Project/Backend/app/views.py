@@ -45,4 +45,4 @@ def index(request):
     }
     
     # Frontend 폴더 내의 index.html 호출
-    return render(request, 'index.html', context)
+    return render(request, 'explore.html', context)
