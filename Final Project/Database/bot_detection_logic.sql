@@ -50,10 +50,7 @@ JOIN Follow f ON u.id = f.follower_id
 GROUP BY u.id HAVING COUNT(f.following_id) > 1000 
 AND (SELECT COUNT(*) FROM Follow WHERE following_id = u.id) = 0;
 
--- 10. Comment Spamming and Suspicious Links
-SELECT user_id FROM Comment 
-WHERE content LIKE '%http%' OR content LIKE '%★★★%'
-GROUP BY user_id, content HAVING COUNT(*) > 5;
+
 
 -- 11. Community-based Detection (Crowdsourced Reports)
 SELECT target_id FROM Report 
