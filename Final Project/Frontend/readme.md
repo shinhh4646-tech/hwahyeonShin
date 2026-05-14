@@ -17,7 +17,7 @@
 
 
     <nav>
-        <a href="index.html" class="nav-item">🏠</a>
+        <a href="home.html" class="nav-item">🏠</a>
         <a href="explore.html" class="nav-item">🔍</a>
         <a href="create_post.html" class="nav-item">📸</a>
         <a href="profile.html" class="nav-item active">👤</a>
