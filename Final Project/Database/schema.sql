@@ -18,13 +18,6 @@ CREATE TABLE Post (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE Comment (
-    id BIGSERIAL PRIMARY KEY,
-    post_id BIGINT REFERENCES Post(id),
-    user_id BIGINT REFERENCES Users(id),
-    content TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
 
 CREATE TABLE Follow (
     id BIGSERIAL PRIMARY KEY,
