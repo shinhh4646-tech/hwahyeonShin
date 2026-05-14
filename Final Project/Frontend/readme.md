@@ -13,3 +13,12 @@
             margin: 0;
             padding-bottom: 60px;
         }
+
+
+
+    <nav>
+        <a href="index.html" class="nav-item">🏠</a>
+        <a href="explore.html" class="nav-item">🔍</a>
+        <a href="create_post.html" class="nav-item">📸</a>
+        <a href="profile.html" class="nav-item active">👤</a>
+    </nav>
