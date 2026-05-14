@@ -61,10 +61,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database 설정 (schema.sql 기준 연동 준비)
 
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',  # 복잡한 경로 빼고 파일명만 직관적으로 작성!
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
