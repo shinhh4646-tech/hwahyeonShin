@@ -59,14 +59,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database 설정 (schema.sql 기준 연동 준비)
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'algorithm_project',
-        'USER': 'postgres',
-        'PASSWORD': 'co0420men',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',  # 복잡한 경로 빼고 파일명만 직관적으로 작성!
     }
 }
 
