@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse | Home</title>
+    <style>
+        /* 1. Pulse 테마 색상 및 폰트 설정 */
+        :root {
+            --bg-color: #000000;         /* 배경: 완전한 블랙 */
+            --text-main: #FFFFFF;       /* 주 텍스트: 화이트 */
+            --text-sub: #A8A8A8;        /* 부 텍스트: 그레이 */
+            --border-color: #262626;    /* 경계선: 짙은 회색 */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding-bottom: 60px; /* 하단 네비바 공간 */
+        }
+
+        /* 2. 상단 헤더 (비행기 아이콘 제거) */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+        }
+        .logo { font-size: 24px; font-weight: 800; letter-spacing: -1px; }
+        .header-icons { font-size: 22px; cursor: pointer; }
+
+        /* 3. 메인 피드 영역 */
+        .feed { max-width: 500px; margin: 0 auto; }
+
+        .post-card {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 10px;
+        }
+
+        /* 사용자 정보 바 */
+        .user-bar {
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .user-info { display: flex; align-items: center; gap: 10px; }
+        .avatar { 
+            width: 32px; height: 32px; border-radius: 50%; 
+            background: #333; /* 심플한 아바타 배경 */
+            border: 1px solid var(--border-color);
+        }
+        .username { font-size: 14px; font-weight: 600; }
+
+        /* 미디어 영역 (정사각형) */
+        .media-container {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #1a1a1a;
+            position: relative;
+        }
+
+        /* 4. 게시물 하단 정보 영역 (해시태그 및 알고리즘 힌트 제거) */
+        .post-content { padding: 12px 15px; }
+        .interaction-icons { display: flex; gap: 15px; font-size: 22px; margin-bottom: 10px; }
+        .likes { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+        .caption { font-size: 14px; line-height: 1.4; }
+        .caption b { margin-right: 5px; }
+
+        /* 5. 하단 네비게이션 바 (홈, 검색, 프로필) */
+        nav {
+            position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 100%; max-width: 500px; height: 50px;
+            background: #000; border-top: 1px solid var(--border-color);
+            display: flex; justify-content: space-around; align-items: center;
+            z-index: 100;
+        }
+        .nav-item { color: white; text-decoration: none; font-size: 24px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Pulse</div>
+        <div class="header-icons">
+            <span>♡</span> </div>
+    </header>
+
+    <main class="feed">
+        <article class="post-card">
+            <div class="user-bar">
+                <div class="user-info">
+                    <div class="avatar"></div>
+                    <div class="username">jina_hwang</div>
+                </div>
+                <span>•••</span>
+            </div>
+            
+            <div class="media-container">
+                <div style="width:100%; height:100%; background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500') center/cover;"></div>
+            </div>
+
+            <div class="post-content">
+                <div class="interaction-icons">
+                    <span>♥</span> </div>
+                <div class="likes">Likes 40</div>
+
+                <div class="caption">
+                    <b>jina_hwang</b> 💻✨
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <nav>
+        <a href="#" class="nav-item">🏠</a>
+        <a href="#" class="nav-item">🔍</a>
+        <a href="#" class="nav-item">📸</a>
+        <a href="#" class="nav-item">👤</a>
+    </nav>
+
+</body>
+</html>

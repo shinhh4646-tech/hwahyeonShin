@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse | Profile</title>
+    <style>
+        /* Pulse Theme Settings */
+        :root {
+            --bg-color: #000000;         /* Background: Pure Black */
+            --text-main: #FFFFFF;       /* Main Text: White */
+            --text-sub: #A8A8A8;        /* Sub Text: Gray */
+            --border-color: #262626;    /* Border: Dark Gray */
+            --button-bg: #1A1A1A;      /* Button Background */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding-bottom: 60px; /* Space for Nav Bar */
+        }
+
+        /* 1. Profile Header Area */
+        header {
+            padding: 30px 15px 25px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .profile-top {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 15px;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            border: 1px solid var(--border-color);
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .stat-item b { display: block; font-size: 16px; }
+        .stat-item span { font-size: 12px; color: var(--text-sub); }
+
+        .username {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Edit Profile Button */
+        .edit-btn {
+            width: 100%;
+            padding: 8px 0;
+            background-color: var(--button-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        /* 2. Post Grid Area (3 Items) */
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            max-width: 500px;
+            margin: 2px auto 0;
+        }
+        
+        .grid-item {
+            aspect-ratio: 1 / 1;
+            background-color: #1a1a1a;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* 3. Bottom Navigation Bar (Home, Search, Profile-Active) */
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 500px;
+            height: 50px;
+            background: #000;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 100;
+        }
+        
+        .nav-item {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 24px;
+        }
+        
+        .nav-item.active {
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="profile-top">
+            <div class="avatar"></div>
+            <div class="stats">
+                <div class="stat-item"><b>3</b><span>Posts</span></div>
+                <div class="stat-item"><b>156</b><span>Followers</span></div>
+                <div class="stat-item"><b>92</b><span>Following</span></div>
+            </div>
+        </div>
+        <div class="username">tom_cruise</div>
+        
+        <button class="edit-btn">Edit Profile</button>
+    </header>
+
+    <main class="post-grid">
+        <div class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=300');"></div>
+        <div class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=300');"></div>
+        <div class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=300');"></div>
+    </main>
+
+    <nav>
+        <a href="#" class="nav-item">🏠</a>
+        <a href="#" class="nav-item">🔍</a>
+        <a href="#" class="nav-item">📸</a>
+        <a href="#" class="nav-item active">👤</a>
+    
+    </nav>
+
+</body>
+</html>
