@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse | Log In</title>
+    <style>
+        /* 1. Pulse 테마 설정 */
+        :root {
+            --bg-color: #000000;
+            --text-main: #FFFFFF;
+            --text-sub: #A8A8A8;
+            --border-color: #262626;
+            --input-bg: #121212;
+            --accent-blue: #0095f6;
+            --heart-red: #ed4956;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 350px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* 로고 스타일 */
+        .logo {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 40px;
+        }
+
+        /* 입력창 스타일 */
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .form-input:focus {
+            border-color: #555;
+        }
+
+        /* 로그인 버튼 */
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .login-btn:active {
+            opacity: 0.7;
+        }
+
+        /* 구분선 */
+        .divider {
+            margin: 25px 0;
+            display: flex;
+            align-items: center;
+            color: var(--text-sub);
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 0 10px;
+        }
+
+        /* 하단 링크 */
+        .footer-link {
+            font-size: 14px;
+            color: var(--text-sub);
+            margin-top: 30px;
+        }
+        .footer-link a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* [공통] 하트 버튼 스타일 (프로젝트 일관성 유지) */
+        .heart-btn { 
+            cursor: pointer; transition: all 0.2s ease; user-select: none;
+            color: black; -webkit-text-stroke: 1.5px white; 
+        }
+        .heart-btn.liked { 
+            color: var(--heart-red); 
+            -webkit-text-stroke: 1px var(--heart-red);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="logo">Pulse</div>
+
+        <form action="1-1.home.html">
+            <div class="input-group">
+                <input type="text" class="form-input" placeholder="Phone number, username, or email" required>
+            </div>
+            <div class="input-group">
+                <input type="password" class="form-input" placeholder="Password" required>
+            </div>
+            <button type="submit" class="login-btn">Log In</button>
+        </form>
+
+        <div class="divider">OR</div>
+
+        <div class="footer-link">
+            Don't have an account? <a href="5-2.signup.html">Sign Up</a>
+        </div>
+    </div>
+
+    <script>
+        // 공통 하트 토글 로직 (일관성 유지)
+        function toggleLike(element) {
+            if (element.classList.contains('liked')) {
+                element.classList.remove('liked');
+            } else {
+                element.classList.add('liked');
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse | Likes</title>
+    <style>
+        /* Pulse Theme Settings */
+        :root {
+            --bg-color: #000000;
+            --text-main: #FFFFFF;
+            --text-sub: #A8A8A8;
+            --border-color: #262626;
+            --button-bg: #1A1A1A;
+            --accent-blue: #0095f6;
+            --heart-red: #ed4956;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding-bottom: 60px;
+        }
+
+        /* 1. Sticky Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+        }
+        .back-btn { 
+            font-size: 20px; 
+            text-decoration: none; 
+            color: white; 
+            margin-right: 20px; 
+            cursor: pointer;
+        }
+        .header-title { font-size: 18px; font-weight: 700; }
+
+        /* 2. Likes List Container */
+        .likes-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .user-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #333;
+            border: 1px solid var(--border-color);
+            object-fit: cover;
+        }
+
+        .username {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .full-name {
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        /* Follow Button Style */
+        .follow-btn {
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .follow-btn.following {
+            background-color: var(--button-bg);
+            color: white;
+        }
+
+        /* [공통] 하트 버튼 스타일 (검정 속 + 흰 테두리) */
+        .heart-btn { 
+            cursor: pointer; 
+            transition: all 0.2s ease; 
+            user-select: none;
+            color: black; 
+            -webkit-text-stroke: 1.5px white; 
+        }
+        .heart-btn.liked { 
+            color: var(--heart-red); 
+            -webkit-text-stroke: 1px var(--heart-red);
+        }
+
+        /* 3. Bottom Navigation Bar */
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 500px;
+            height: 50px;
+            background: #000;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 100;
+        }
+        .nav-item {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="1-1.home.html" class="back-btn">←</a>
+        <div class="header-title">Likes</div>
+    </header>
+
+    <main class="likes-container">
+        <div class="user-item">
+            <a href="6-1.friends_profile.html" class="user-info" style="text-decoration: none; color: inherit;">
+                <img src="https://i.pravatar.cc/150?u=sarah" class="avatar">
+                <div>
+                    <div class="username">sarah_designer</div>
+                    <div class="full-name">Sarah Jenkins</div>
+                </div>
+            </a>
+            <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
+        </div>
+
+        <div class="user-item">
+            <a href="6-1.friends_profile.html" class="user-info" style="text-decoration: none; color: inherit;">
+                <img src="https://i.pravatar.cc/150?u=casey" class="avatar">
+                <div>
+                    <div class="username">casey_vibes</div>
+                    <div class="full-name">Casey Miller</div>
+                </div>
+            </a>
+            <button class="follow-btn following" onclick="toggleFollow(this)">Following</button>
+        </div>
+
+        <div class="user-item">
+            <a href="6-1.friends_profile.html" class="user-info" style="text-decoration: none; color: inherit;">
+                <img src="https://i.pravatar.cc/150?u=jordan" class="avatar">
+                <div>
+                    <div class="username">jordan_minimal</div>
+                    <div class="full-name">Jordan Smith</div>
+                </div>
+            </a>
+            <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
+        </div>
+    </main>
+
+    <nav>
+        <a href="1-1.home.html" class="nav-item">🏠</a>
+        <a href="2-1.explore.html" class="nav-item">🔍</a>
+        <a href="3-1.create_post.html" class="nav-item">📸</a>
+        <a href="4-1.my_profile.html" class="nav-item">👤</a>
+    </nav>
+
+    <script>
+        // 팔로우 버튼 토글 로직
+        function toggleFollow(btn) {
+            if (btn.innerText === "Follow") {
+                btn.innerText = "Following";
+                btn.classList.add("following");
+            } else {
+                btn.innerText = "Follow";
+                btn.classList.remove("following");
+            }
+        }
+
+        // 공통 하트 토글 로직 (일관성 유지)
+        function toggleLike(element) {
+            if (element.classList.contains('liked')) {
+                element.classList.remove('liked');
+            } else {
+                element.classList.add('liked');
+            }
+        }
+    </script>
+
+</body>
+</html>

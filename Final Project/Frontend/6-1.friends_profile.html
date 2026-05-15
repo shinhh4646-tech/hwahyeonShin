@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse | Friend Profile</title>
+    <style>
+        /* Pulse Theme Settings */
+        :root {
+            --bg-color: #000000;         
+            --text-main: #FFFFFF;       
+            --text-sub: #A8A8A8;        
+            --border-color: #262626;    
+            --accent-blue: #0095f6;     
+            --heart-red: #ed4956;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding-bottom: 60px;
+        }
+
+        /* 1. Header with Back Button */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+        }
+        .back-btn { 
+            font-size: 22px; 
+            text-decoration: none; 
+            color: white; 
+            margin-right: 20px; 
+            cursor: pointer;
+        }
+        .header-username { font-size: 18px; font-weight: 700; }
+
+        /* 2. Profile Info Area */
+        .profile-container {
+            padding: 20px 15px;
+        }
+        
+        .profile-top {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            border: 1px solid var(--border-color);
+            object-fit: cover;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .stat-link {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .stat-item b { display: block; font-size: 16px; }
+        .stat-item span { font-size: 12px; color: var(--text-sub); }
+
+        .username-display {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* 3. Action Button (Follow Only) */
+        .action-area {
+            margin-bottom: 25px;
+        }
+        .follow-btn {
+            width: 100%;
+            padding: 10px 0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            background-color: var(--accent-blue);
+            color: white;
+            transition: background-color 0.2s;
+        }
+
+        /* 4. Post Grid Area */
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .grid-item {
+            aspect-ratio: 1 / 1;
+            background-color: #1a1a1a;
+            background-size: cover;
+            background-position: center;
+            display: block; /* 링크 영역 확보 */
+        }
+
+        /* [공통] 하트 버튼 스타일 */
+        .heart-btn { 
+            cursor: pointer; transition: all 0.2s ease; user-select: none;
+            color: black; -webkit-text-stroke: 1.5px white; 
+        }
+        .heart-btn.liked { 
+            color: var(--heart-red); 
+            -webkit-text-stroke: 1px var(--heart-red);
+        }
+
+        /* 5. Bottom Navigation Bar */
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 500px;
+            height: 50px;
+            background: #000;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 100;
+        }
+        .nav-item { color: var(--text-sub); text-decoration: none; font-size: 24px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="1-1.home.html" class="back-btn">←</a>
+        <div class="header-username">alex_techie</div>
+    </header>
+
+    <main class="profile-container">
+        <section class="profile-top">
+            <img src="https://i.pravatar.cc/150?u=alex" class="avatar" alt="Friend Avatar">
+            <div class="stats">
+                <a href="6-3.friends_feed.html" class="stat-link">
+                    <div class="stat-item"><b>12</b><span>Posts</span></div>
+                </a>
+                
+                <a href="6-2.friends_connections.html" class="stat-link">
+                    <div class="stat-item"><b>1.2k</b><span>Followers</span></div>
+                </a>
+                
+                <a href="6-2.friends_connections.html" class="stat-link">
+                    <div class="stat-item"><b>340</b><span>Following</span></div>
+                </a>
+            </div>
+        </section>
+
+        <div class="username-display">Alex Techie</div>
+
+        <section class="action-area">
+            <button class="follow-btn" id="follow-action" onclick="toggleFollow()">Follow</button>
+        </section>
+
+        <div class="post-grid">
+            <a href="6-3.friends_feed.html" class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300');"></a>
+            <a href="6-3.friends_feed.html" class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=300');"></a>
+            <a href="6-3.friends_feed.html" class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=300');"></a>
+            <a href="6-3.friends_feed.html" class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=300');"></a>
+            <a href="6-3.friends_feed.html" class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=300');"></a>
+            <a href="6-3.friends_feed.html" class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=300');"></a>
+        </div>
+    </main>
+
+    <nav>
+        <a href="1-1.home.html" class="nav-item">🏠</a>
+        <a href="2-1.explore.html" class="nav-item">🔍</a>
+        <a href="3-1.create_post.html" class="nav-item">📸</a>
+        <a href="4-1.my_profile.html" class="nav-item">👤</a>
+    </nav>
+
+    <script>
+        function toggleFollow() {
+            const btn = document.getElementById('follow-action');
+            if (btn.innerText === 'Follow') {
+                btn.innerText = 'Following';
+                btn.style.backgroundColor = '#363636'; 
+            } else {
+                btn.innerText = 'Follow';
+                btn.style.backgroundColor = '#0095f6'; 
+            }
+        }
+
+        function toggleLike(element) {
+            if (element.classList.contains('liked')) {
+                element.classList.remove('liked');
+            } else {
+                element.classList.add('liked');
+            }
+        }
+    </script>
+
+</body>
+</html>
