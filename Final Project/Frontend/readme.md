@@ -17,8 +17,8 @@ root {
 
 
     <nav>
-        <a href="1-1.home.html" class="nav-item active">🏠</a>
-        <a href="2-1.explore.html" class="nav-item">🔍</a>
-        <a href="3.create_post.html" class="nav-item">📸</a>
+        <a href="1-1.home.html" class="nav-item">🏠</a>
+        <a href="2-1.explore.html" class="nav-item active">🔍</a>
+        <a href="3-1.create_post.html" class="nav-item">📸</a>
         <a href="4-1.my_profile.html" class="nav-item">👤</a>
     </nav>
