@@ -6,7 +6,7 @@ Exercise 1: Hwahyeon SHIN
 
 Exercise 2: Minkyeong KANG
 
-Exercise 3: 
+Exercise 3: Jina Hwang
 
 ## 2. Brief Description of Solutions
 
