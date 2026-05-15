@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse | Explore</title>
+    <style>
+        /* Pulse Theme Settings */
+        :root {
+            --bg-color: #000000;
+            --text-main: #FFFFFF;
+            --text-sub: #A8A8A8;
+            --border-color: #262626;
+            --search-bg: #1A1A1A;
+            --heart-red: #ed4956;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding-bottom: 80px;
+        }
+
+        /* 1. Header with Search Bar */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+        }
+
+        .search-container {
+            background: var(--search-bg);
+            border-radius: 10px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-icon {
+            margin-right: 10px;
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            width: 100%;
+            outline: none;
+            font-size: 14px;
+        }
+
+        /* 2. Search Results List */
+        #search-results {
+            display: none;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+
+        .user-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .user-info { display: flex; align-items: center; gap: 12px; }
+        .avatar { 
+            width: 44px; height: 44px; border-radius: 50%; 
+            background: #333; border: 1px solid var(--border-color);
+            object-fit: cover;
+        }
+        .username { font-size: 14px; font-weight: 600; }
+        .full-name { font-size: 13px; color: var(--text-sub); }
+
+        /* 3. Explore Grid (3:4 Ratio) */
+        .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            aspect-ratio: 3 / 4;
+            background-color: #1a1a1a;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+        }
+
+        /* [공통] 하트 버튼 스타일 (검정 속 + 흰 테두리) */
+        .heart-btn { 
+            cursor: pointer; 
+            transition: all 0.2s ease; 
+            user-select: none;
+            color: black; 
+            -webkit-text-stroke: 1.5px white; 
+        }
+        .heart-btn.liked { 
+            color: var(--heart-red); 
+            -webkit-text-stroke: 1px var(--heart-red);
+        }
+
+        /* 4. Bottom Navigation Bar */
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 500px;
+            height: 60px;
+            background: #000;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .nav-item { color: var(--text-sub); text-decoration: none; font-size: 24px; cursor: pointer; }
+        .nav-item.active { color: var(--text-main); }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="main-search" class="search-input" placeholder="Search accounts" oninput="handleSearch()">
+        </div>
+    </header>
+
+    <main id="search-results">
+        <a href="6-1.friends_profile.html" class="user-item result-item">
+            <div class="user-info">
+                <img src="https://i.pravatar.cc/150?u=alex" class="avatar">
+                <div>
+                    <div class="username">alex_techie</div>
+                    <div class="full-name">Alex Kim</div>
+                </div>
+            </div>
+            <div style="color: var(--text-sub); font-size: 18px;">›</div>
+        </a>
+
+        <a href="6-1.friends_profile.html" class="user-item result-item">
+            <div class="user-info">
+                <img src="https://i.pravatar.cc/150?u=tom" class="avatar">
+                <div>
+                    <div class="username">tom_cruise</div>
+                    <div class="full-name">Tom Cruise</div>
+                </div>
+            </div>
+            <div style="color: var(--text-sub); font-size: 18px;">›</div>
+        </a>
+
+        <a href="6-1.friends_profile.html" class="user-item result-item">
+            <div class="user-info">
+                <img src="https://i.pravatar.cc/150?u=jina" class="avatar">
+                <div>
+                    <div class="username">jina_hwang</div>
+                    <div class="full-name">Jina Hwang</div>
+                </div>
+            </div>
+            <div style="color: var(--text-sub); font-size: 18px;">›</div>
+        </a>
+    </main>
+
+    <main id="explore-grid" class="explore-grid">
+        <a href="1-1.home.html" class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400');"></a>
+        <a href="1-1.home.html" class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400');"></a>
+        <a href="1-1.home.html" class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1493246507139-91e8bef99c02?w=400');"></a>
+        <a href="1-1.home.html" class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400');"></a>
+        <a href="1-1.home.html" class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=400');"></a>
+        <a href="1-1.home.html" class="grid-item" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=400');"></a>
+    </main>
+
+    <nav>
+        <a href="1-1.home.html" class="nav-item">🏠</a>
+        <a href="2-1.explore.html" class="nav-item active">🔍</a>
+        <a href="3-1.create_post.html" class="nav-item">📸</a>
+        <a href="4-1.my_profile.html" class="nav-item">👤</a>
+    </nav>
+
+    <script>
+        // 검색 핸들러
+        function handleSearch() {
+            const input = document.getElementById('main-search');
+            const filter = input.value.toLowerCase();
+            const grid = document.getElementById('explore-grid');
+            const results = document.getElementById('search-results');
+            const items = document.getElementsByClassName('result-item');
+
+            if (filter.length > 0) {
+                grid.style.display = 'none';
+                results.style.display = 'block';
+
+                for (let i = 0; i < items.length; i++) {
+                    const username = items[i].querySelector('.username').innerText;
+                    if (username.toLowerCase().indexOf(filter) > -1) {
+                        items[i].style.display = 'flex';
+                    } else {
+                        items[i].style.display = 'none';
+                    }
+                }
+            } else {
+                grid.style.display = 'grid';
+                results.style.display = 'none';
+            }
+        }
+
+        // 공통 하트 토글 로직
+        function toggleLike(element) {
+            if (element.classList.contains('liked')) {
+                element.classList.remove('liked');
+            } else {
+                element.classList.add('liked');
+            }
+        }
+    </script>
+
+</body>
+</html>
