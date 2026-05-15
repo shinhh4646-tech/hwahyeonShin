@@ -47,6 +47,9 @@
 
 
 
+
+------Memo
+
 root {
             --bg-color: #000000;
             --text-main: #FFFFFF;
