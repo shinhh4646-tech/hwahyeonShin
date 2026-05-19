@@ -13,7 +13,9 @@ Exercise 3:
 ## Exercise 1
 
 Validation (is_valid_invitation): Checks every pair of people in the invited list to ensure no two individuals have a conflict (no edges exist between them).
+
 Exact Search (find_max_invitations_exact): Uses a backtracking algorithm with pruning to explore all possible include/exclude combinations. It guarantees finding the absolute maximum independent set but is computationally heavy.
+
 Greedy Approach (find_max_invitations_greedy): Heuristically builds the guest list by repeatedly selecting the person with the fewest conflicts (minimum degree) and removing them along with their conflicting neighbors. It is fast and scalable but does not guarantee the global maximum.
 
 ## Exercise 2
