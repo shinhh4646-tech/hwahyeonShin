@@ -19,7 +19,7 @@ Exact Search (find_max_invitations_exact): Uses a backtracking algorithm with pr
 Greedy Approach (find_max_invitations_greedy): Heuristically builds the guest list by repeatedly selecting the person with the fewest conflicts (minimum degree) and removing them along with their conflicting neighbors. It is fast and scalable but does not guarantee the global maximum.
 
 ## Exercise 2
-
+It s a viral marketing campaign as a 0/1 Knapsack problem, where the goal is to maximize the total reach of a promotional message without exceeding a fixed budget. The solution consists of three parts: a validation function to check if a selected group of users stays within the budget constraint, an exact dynamic programming approach that systematically guarantees the maximum possible reach, and a fast greedy heuristic that approximates the solution by prioritizing users with the highest reach-to-cost ratio.
 ## Exercise 3
 
 
@@ -45,7 +45,7 @@ Distributed Computing: Companies leverage massive parallel processing frameworks
 Graph Partitioning (Clustering): Massive networks are not processed whole. Algorithms like the Louvain method are used to partition the graph into smaller, disconnected "communities." Independent sets are found within these smaller clusters and then merged.
 
 ## Exercise 2
-
+Its the fundamental trade-off between exact optimization and scalability. While Dynamic Programming guarantees the absolute maximum reach with a pseudo-polynomial time complexity of O(N*budget) by storing subproblems, it suffers from memory and computation explosion and becomes impossible for massive datasets  or continuous real-number costs. Consequently, real-world platforms must abandon exact methods and rely on the ratio-based Greedy algorithm; despite its vulnerability to suboptimal edge cases and poor worst-case approximation factors, it scales highly efficiently to process millions of users in real-time.
 
 ## Exercise 3
 
